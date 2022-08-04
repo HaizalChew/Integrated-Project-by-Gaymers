@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Declare all variables
-    [SerializeField] private Rigidbody rb;
+    // [SerializeField] private Rigidbody rb;
+    [SerializeField] private CharacterController characterController;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayers;
@@ -102,11 +103,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isPlayerDash == true && dashTimer >= 0.0f)
         {
-            rb.MovePosition(transform.position + (transform.forward * movementInput.magnitude) * speed * Time.deltaTime * dashSpeedMultiplier);
+            // rb.MovePosition(transform.position + (transform.forward * movementInput.magnitude) * speed * Time.deltaTime * dashSpeedMultiplier);
+            characterController.Move((transform.forward * movementInput.magnitude) * speed * Time.deltaTime * dashSpeedMultiplier);
         }
         else
         {
-            rb.MovePosition(transform.position + (transform.forward * movementInput.magnitude) * speed * Time.deltaTime);
+            // rb.MovePosition(transform.position + (transform.forward * movementInput.magnitude) * speed * Time.deltaTime);
+            characterController.Move((transform.forward * movementInput.magnitude) * speed * Time.deltaTime);
         }
         
     }

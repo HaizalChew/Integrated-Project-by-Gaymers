@@ -6,7 +6,8 @@ public class ChomperEnemy : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerPosition;
-    [SerializeField] private Rigidbody rb;
+    // [SerializeField] private Rigidbody rb;
+    [SerializeField] private CharacterController characterController;
 
     // Declare movement variables
     [SerializeField] private float moveSpeed = 4;
@@ -58,7 +59,7 @@ public class ChomperEnemy : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         // Disable the enemy
-        GetComponent<Collider>().enabled = false;
+        GetComponent<CharacterController>().enabled = false;
         this.enabled = false;
     }
 
@@ -68,7 +69,7 @@ public class ChomperEnemy : MonoBehaviour
 
         if (Vector3.Distance(transform.position, playerPosition.position) >= MinDistance)
         {
-            rb.MovePosition(transform.position + (transform.forward * moveSpeed * Time.deltaTime));
+            characterController.Move(transform.forward * moveSpeed * Time.deltaTime);
             animator.SetBool("IsWalking", true);
         }
 
