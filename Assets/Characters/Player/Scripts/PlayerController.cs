@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private HealthBar healthBar;
 
     // Declare movement variable
     [SerializeField] private float speed = 10;
@@ -20,16 +21,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashSpeedMultiplier = 2;
     [SerializeField] private bool isPlayerDash = false;
     [SerializeField] private float dashTimer = 1f;
+    float dashPlaceholder;
 
     // Declare attack variables
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private int attackDamage = 30;
     [SerializeField] private float attackCooldown = 2f;
+    float nextAttackTime = 0f;
+    int noOfClicks = 0;
+    float lastClickedTime = 0;
+    float maxComboDelay = 1.1f;
+
+    // Declare health variables
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
 
     Vector2 input;
     Vector3 movementInput;
-    float dashPlaceholder;
-    float nextAttackTime;
+    
+    
 
     Animator mAnimator;
 
@@ -37,10 +47,18 @@ public class PlayerController : MonoBehaviour
     {
         mAnimator = GetComponent<Animator>();
         dashPlaceholder = dashTimer;
+
+        currentHealth = maxHealth;
+        healthBar.SetHealth(maxHealth);
     }
 
     void Update()
     {
+        if (nextAttackTime <= 0)
+        {
+            Move();
+        }
+        
         Look();
 
         //If player is moving, play run animaton.
@@ -69,18 +87,18 @@ public class PlayerController : MonoBehaviour
 
         //Player Attack Controls
         playerInput.actions["Attack"].performed += ctx => Attack();
-        
+
         if (nextAttackTime > 0)
         {
             nextAttackTime -= Time.deltaTime;
         }
-        
+
+        if (Time.time - lastClickedTime > maxComboDelay)
+        {
+            noOfClicks = 0;
+        }        
     }
 
-    void FixedUpdate()
-    {
-        Move();
-    }
 
     //Controlled by Input System
     void OnMove(InputValue value)
@@ -135,20 +153,40 @@ public class PlayerController : MonoBehaviour
         if (nextAttackTime <= 0)
         {
             nextAttackTime = attackCooldown;
-            //Play an Attack Animation
-            mAnimator.SetTrigger("isAttack");
+            lastClickedTime = Time.time;
+            noOfClicks++;
+            noOfClicks = Mathf.Clamp(noOfClicks, 0, 4);
 
-            //Detect enemies in range of attack
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-
-            //Damage the enemies
-            foreach (Collider enemy in hitEnemies)
+            if (noOfClicks == 1)
             {
-                Debug.Log("We hit " + enemy.name);
-
-                enemy.GetComponent<ChomperEnemy>().TakeDamage(attackDamage);
+                //Play an Attack Animation
+                mAnimator.SetTrigger("isAttack");
             }
+
+            if (noOfClicks == 2)
+            {
+                //Play an Attack Animation
+                mAnimator.SetTrigger("isAttack2");
+                nextAttackTime += 0.2f;
+            }
+
+            if (noOfClicks == 3)
+            {
+                //Play an Attack Animation
+                mAnimator.SetTrigger("isAttack3");
+                nextAttackTime += 0.4f;
+            }
+
+            if (noOfClicks == 4)
+            {
+                //Play an Attack Animation
+                mAnimator.SetTrigger("isAttack4");
+                noOfClicks = 0;
+                nextAttackTime += 0.6f;
+            }
+
         }
+
     }
 
     void OnDrawGizmosSelected()
@@ -160,4 +198,52 @@ public class PlayerController : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    public void PlayerTakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        mAnimator.SetTrigger("Hurt");
+
+        // set the health bar
+        healthBar.SetHealth(currentHealth);
+
+        // Check if player is dead
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Player Died!");
+
+        // Play die animation
+        mAnimator.SetBool("isDead", true);
+
+        // Disable the player
+        GetComponent<CharacterController>().enabled = false;
+        GetComponent<PlayerInput>().enabled = false;
+        this.enabled = false;
+    }
+
+    void MeleeAttackStart()
+    {
+        //Detect enemies in range of attack
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+
+        //Damage the enemies
+        foreach (Collider enemy in hitEnemies)
+        {
+            Debug.Log("We hit " + enemy.name);
+
+            enemy.GetComponent<ChomperEnemy>().TakeDamage(attackDamage);
+        }
+    }
+
+    void MeleeAttackEnd()
+    {
+        return;
+    }
 }
+    
