@@ -203,6 +203,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
         mAnimator.SetTrigger("Hurt");
+        nextAttackTime += 0.5f;
 
         // set the health bar
         healthBar.SetHealth(currentHealth);

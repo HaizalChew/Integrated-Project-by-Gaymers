@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChomperEnemy : MonoBehaviour
 {
+    // Declare ALL variables
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerPosition;
     // [SerializeField] private Rigidbody rb;
@@ -11,7 +12,7 @@ public class ChomperEnemy : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask playerLayers;
     [SerializeField] private HealthBar healthBar;
-
+    [SerializeField] private GameObject canvas;
 
     // Declare movement variables
     [SerializeField] private float moveSpeed = 4;
@@ -25,6 +26,12 @@ public class ChomperEnemy : MonoBehaviour
     [SerializeField] private int attackDamage = 30;
     [SerializeField] private float attackCooldown = 2f;
 
+    // Declare Shader Materials
+    [SerializeField] private Material material1;
+    [SerializeField] private GameObject bodyObj;
+    float dissolveValue = 0;
+    bool isDead = false;
+
     float nextAttackTime;
     bool isEnemyAttacking = false;
 
@@ -32,11 +39,12 @@ public class ChomperEnemy : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetHealth(maxHealth);
+        
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, playerPosition.position) <= MaxDistance)
+        if (Vector3.Distance(transform.position, playerPosition.position) <= MaxDistance && isDead != true)
         {
             ChasePlayer();
         }
@@ -65,6 +73,15 @@ public class ChomperEnemy : MonoBehaviour
             isEnemyAttacking = false;
         }
 
+        if (isDead == true)
+        {
+            DieDissolve();
+            dissolveValue += Time.deltaTime / 2f;
+        }
+        if (dissolveValue >= 1)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -80,20 +97,27 @@ public class ChomperEnemy : MonoBehaviour
         // Check if enemy is dead
         if (currentHealth <= 0)
         {
+            isDead = true;
             Die();
         }
     }
 
     void Die()
     {
-        Debug.Log("Enemy Died!");
 
         // Play die animation
         animator.SetBool("IsDead", true);
 
         // Disable the enemy
         GetComponent<CharacterController>().enabled = false;
-        this.enabled = false;
+        canvas.SetActive(false);
+
+    }
+
+    void DieDissolve()
+    {
+        bodyObj.GetComponent<SkinnedMeshRenderer>().material = material1;
+        material1.SetFloat("_Dissolve_Value", dissolveValue);
     }
 
     void ChasePlayer()
