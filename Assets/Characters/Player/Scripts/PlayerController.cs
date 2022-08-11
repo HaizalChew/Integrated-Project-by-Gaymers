@@ -238,7 +238,16 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("We hit " + enemy.name);
 
-            enemy.GetComponent<ChomperEnemy>().TakeDamage(attackDamage);
+            if (enemy.GetComponent<ChomperEnemy>() != null)
+            {
+                enemy.GetComponent<ChomperEnemy>().TakeDamage(attackDamage);
+            }
+
+            if (enemy.GetComponent<GrenadierEnemy>() != null)
+            {
+                enemy.GetComponent<GrenadierEnemy>().TakeDamage(attackDamage);
+            }
+
         }
     }
 
