@@ -1,5 +1,469 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &330202044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330202045}
+  - component: {fileID: 330202046}
+  - component: {fileID: 330202047}
+  m_Layer: 6
+  m_Name: Health Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &330202045
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330202044}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.025, z: 0.071428575}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1669010083}
+  - {fileID: 1370356147}
+  m_Father: {fileID: 371902269}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &330202046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330202044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 0}
+  m_FillRect: {fileID: 1669010083}
+  m_HandleRect: {fileID: 0}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 1000
+  m_WholeNumbers: 1
+  m_Value: 1
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &330202047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330202044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb8f6e2f1cbb31499e7d540093bae25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 330202046}
+--- !u!1 &371902264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371902269}
+  - component: {fileID: 371902268}
+  - component: {fileID: 371902267}
+  - component: {fileID: 371902266}
+  - component: {fileID: 371902265}
+  m_Layer: 6
+  m_Name: Enemy Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &371902269
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371902264}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.14}
+  m_LocalScale: {x: 0.20000002, y: 0.20000002, z: 0.20000002}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 330202045}
+  m_Father: {fileID: 7420419426904015218}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.01, y: 5.28}
+  m_SizeDelta: {x: 21, y: 4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &371902268
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371902264}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 0
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &371902267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371902264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!114 &371902266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371902264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &371902265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371902264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df0e0d50ddd8bb478e875c73578e277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+--- !u!1 &585949984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 585949985}
+  m_Layer: 6
+  m_Name: AttackHitbox2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &585949985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585949984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7420419426904015218}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634344288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634344289}
+  m_Layer: 6
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &634344289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634344288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.244, z: 2.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7420419426904015218}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1370356146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370356147}
+  - component: {fileID: 1370356149}
+  - component: {fileID: 1370356148}
+  m_Layer: 6
+  m_Name: Border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1370356147
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370356146}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7142857, y: 5.7142854, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 330202045}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: -80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1370356149
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370356146}
+  m_CullTransparentMesh: 1
+--- !u!114 &1370356148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370356146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 999cc74a5b8ed314fb6b3e7d20667a59, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1527951822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527951823}
+  m_Layer: 6
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1527951823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527951822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7420419426904015218}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1669010082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669010083}
+  - component: {fileID: 1669010085}
+  - component: {fileID: 1669010084}
+  m_Layer: 6
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1669010083
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669010082}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 330202045}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.001, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1669010085
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669010082}
+  m_CullTransparentMesh: 1
+--- !u!114 &1669010084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669010082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7420419426903792816
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GrenadierSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7420419426904015058}
   - component: {fileID: 7420419426917453908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightThumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightThumbEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightChestArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightFootEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightHandEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +1004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightHornArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +1036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightHornArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +1067,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +1099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +1131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015106}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +1163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftThumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +1195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftThumbEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +1226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +1258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +1290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +1322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015118}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_RightChestArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftChestArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,7 +1386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftChestArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +1417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftFootEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015128}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftHandEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftHornArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftHornArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1143,7 +1607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_EyeArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015142}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_EyeArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_HelmetArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,7 +1702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_HelmetArmorEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1303,7 +1767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7420419426904015150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grenadier_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1800,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7420419426904015218}
   - component: {fileID: 7420419426913316496}
-  m_Layer: 0
+  - component: {fileID: 4849032876297933759}
+  - component: {fileID: 4849032876297933758}
+  m_Layer: 6
   m_Name: Grenadier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,6 +1823,10 @@ Transform:
   m_Children:
   - {fileID: 7420419426904015058}
   - {fileID: 7420419426904015056}
+  - {fileID: 371902269}
+  - {fileID: 634344289}
+  - {fileID: 585949985}
+  - {fileID: 1527951823}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1370,7 +1840,7 @@ Animator:
   m_GameObject: {fileID: 7420419426903792978}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 887cc9cbcc10e8c45b6262198cc15ee6, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9845a19ead955fd408829c99f2f8c9f2, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1380,3 +1850,57 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!143 &4849032876297933759
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420419426903792978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 5
+  m_Radius: 1.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!114 &4849032876297933758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420419426903792978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0be5331795c4bd4fbb8217bb2761ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 0}
+  characterController: {fileID: 4849032876297933759}
+  animator: {fileID: 7420419426913316496}
+  healthBar: {fileID: 330202047}
+  canvas: {fileID: 371902264}
+  moveSpeed: 1
+  MaxDistance: 15
+  MinDistance: 5
+  MinDistanceForMelee: 3
+  attackPoint: {fileID: 634344289}
+  attackPoint2: {fileID: 585949985}
+  spawnPoint: {fileID: 1527951823}
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  projectile: {fileID: 5818634380080579467, guid: 5f4bc34832fee0c4eace0eca6a0c119f, type: 3}
+  maxHealth: 1000
+  currentHealth: 0
+  attackRange: 1.2
+  attackRange2: 2.3
+  attackDamage: 50
+  attackCooldown: 4
+  attackCooldownRange: 8
+  grenadeVelocity: 5

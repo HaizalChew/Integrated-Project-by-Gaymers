@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
 
+    public bool playerInRangeOfChest = false;
+
     Vector2 input;
     Vector3 movementInput;
     
@@ -202,8 +204,13 @@ public class PlayerController : MonoBehaviour
     public void PlayerTakeDamage(int damage)
     {
         currentHealth -= damage;
-        mAnimator.SetTrigger("Hurt");
-        nextAttackTime += 0.5f;
+        if (damage >= 0)
+        {
+            mAnimator.SetTrigger("Hurt");
+            nextAttackTime += 0.5f;
+        }
+
+        currentHealth = Mathf.Clamp(currentHealth, -10, 100);
 
         // set the health bar
         healthBar.SetHealth(currentHealth);

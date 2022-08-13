@@ -3701,7 +3701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2640794a16c1d9042bf85871d7766108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController: {fileID: 0}
+  characterController: {fileID: 1242079880}
   playerInput: {fileID: 522582467}
   attackPoint: {fileID: 2175115344782896237}
   enemyLayers:
