@@ -9,6 +9,7 @@ public class GrenadierEnemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject winScreen;
 
     // Declare movement variables
     [SerializeField] private float moveSpeed = 3;
@@ -31,6 +32,9 @@ public class GrenadierEnemy : MonoBehaviour
     [SerializeField] private float attackCooldown = 10f;
     [SerializeField] private float attackCooldownRange = 8f;
     [SerializeField] private float grenadeVelocity = 6f;
+
+    // Declare Audio variables
+    [SerializeField] private AudioSource deathAudio;
 
     float nextAttackTime;
     float nextAttackTimeRanged;
@@ -237,6 +241,7 @@ public class GrenadierEnemy : MonoBehaviour
         GetComponent<CharacterController>().enabled = false;
         canvas.SetActive(false);
         this.enabled = false;
-
+        winScreen.SetActive(true);
+        deathAudio.Play();
     }
 }

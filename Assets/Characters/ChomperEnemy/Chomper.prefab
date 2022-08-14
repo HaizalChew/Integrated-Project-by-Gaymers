@@ -3836,3 +3836,5 @@ MonoBehaviour:
   attackCooldown: 2
   material1: {fileID: 2100000, guid: e468779a40a448e43bb5c31f6f78059b, type: 2}
   bodyObj: {fileID: 1438691616470208839}
+  deathAudio: {fileID: 0}
+  attackAudio: {fileID: 0}

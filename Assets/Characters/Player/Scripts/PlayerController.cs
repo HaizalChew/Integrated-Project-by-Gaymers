@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private GameObject deathScreen;
 
     // Declare movement variable
     [SerializeField] private float speed = 10;
@@ -36,6 +37,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
 
+    // Declare audio variables
+    [SerializeField] private AudioSource swordSlash;
+    [SerializeField] private AudioSource hurtAudio;
+    [SerializeField] private AudioSource footstepAudio;
+
+
     public bool playerInRangeOfChest = false;
 
     Vector2 input;
@@ -52,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetHealth(maxHealth);
+        footstepAudio.loop = true;
     }
 
     void Update()
@@ -66,11 +74,14 @@ public class PlayerController : MonoBehaviour
         //If player is moving, play run animaton.
         if (movementInput != Vector3.zero)
         {
+            footstepAudio.UnPause();
             mAnimator.SetBool("isWalk", true);
         }
         else
         {
+            footstepAudio.Pause();
             mAnimator.SetBool("isWalk", false);
+            
         }
 
         //Player dash controls
@@ -158,6 +169,7 @@ public class PlayerController : MonoBehaviour
             lastClickedTime = Time.time;
             noOfClicks++;
             noOfClicks = Mathf.Clamp(noOfClicks, 0, 4);
+            swordSlash.Play();
 
             if (noOfClicks == 1)
             {
@@ -208,6 +220,7 @@ public class PlayerController : MonoBehaviour
         {
             mAnimator.SetTrigger("Hurt");
             nextAttackTime += 0.5f;
+            hurtAudio.Play();
         }
 
         currentHealth = Mathf.Clamp(currentHealth, -10, 100);
@@ -232,7 +245,9 @@ public class PlayerController : MonoBehaviour
         // Disable the player
         GetComponent<CharacterController>().enabled = false;
         GetComponent<PlayerInput>().enabled = false;
+
         this.enabled = false;
+        deathScreen.SetActive(true);
     }
 
     void MeleeAttackStart()

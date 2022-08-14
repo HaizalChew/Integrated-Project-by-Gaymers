@@ -16,6 +16,8 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject health;
     [SerializeField] private bool damageDrop;
 
+    [SerializeField] private AudioSource ChestAudio;
+
     bool isChestOpen = false;
 
     // Update is called once per frame
@@ -35,8 +37,20 @@ public class Chest : MonoBehaviour
     void ChestInteract()
     {
         animator.SetBool("IsOpen", true);
+        ChestAudio.Play();
         isChestOpen = true;
         DropItem();
+
+        if (animator == null)
+        {
+            return;
+        }
+
+        if (ChestAudio == null)
+        {
+            return;
+        }
+        
     }
 
     void DropItem()
@@ -47,6 +61,8 @@ public class Chest : MonoBehaviour
             GameObject healthClone;
             healthClone = Instantiate(health, spawnPoint.position, Quaternion.identity);
             healthClone.transform.position = spawnPoint.position;
+            ui.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 }

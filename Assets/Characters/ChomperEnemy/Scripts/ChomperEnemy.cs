@@ -32,6 +32,10 @@ public class ChomperEnemy : MonoBehaviour
     float dissolveValue = 0;
     bool isDead = false;
 
+    // Declare Audio variables
+    [SerializeField] private AudioSource deathAudio;
+    [SerializeField] private AudioSource attackAudio;
+
     float nextAttackTime;
     bool isEnemyAttacking = false;
 
@@ -107,11 +111,12 @@ public class ChomperEnemy : MonoBehaviour
 
         // Play die animation
         animator.SetBool("IsDead", true);
+        deathAudio.Play();
 
         // Disable the enemy
         GetComponent<CharacterController>().enabled = false;
         canvas.SetActive(false);
-
+        
     }
 
     void DieDissolve()
@@ -146,6 +151,7 @@ public class ChomperEnemy : MonoBehaviour
     {
         //Detect enemies in range of attack
         Collider[] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayers);
+        attackAudio.Play();
 
         foreach (Collider player in hitPlayer)
         {

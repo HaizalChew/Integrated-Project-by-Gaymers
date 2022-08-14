@@ -13,6 +13,8 @@ public class TrapBehaviour : MonoBehaviour
     [SerializeField] private float trapCooldown = 5f;
     [SerializeField] private float trapTimeBeforeActive = 1f;
 
+    [SerializeField] private AudioSource trapAudio;
+
     float trapResetTime = 0;
 
     void Update()
@@ -47,6 +49,7 @@ public class TrapBehaviour : MonoBehaviour
 
         // play animation
         animator.SetBool("IsActivated", true);
+        trapAudio.Play();
 
         //Detect enemies in range of attack
         Collider[] hitPlayer = Physics.OverlapSphere(damagePoint.position, damageRange, enemyLayers);
